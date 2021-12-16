@@ -1,4 +1,5 @@
 import 'package:cleaning_service/presentation/pages/welcome/welcome_page.dart';
+import 'package:cleaning_service/presentation/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,8 +15,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
+        scaffoldBackgroundColor: kBackgroundColor,
         primarySwatch: Colors.blue,
       ),
+      debugShowCheckedModeBanner: false,
       home: const WelcomePage(),
     );
   }

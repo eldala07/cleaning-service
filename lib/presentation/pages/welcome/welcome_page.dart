@@ -1,7 +1,10 @@
-import 'package:cleaning_service/presentation/pages/welcome/widgets/categories.dart';
-import 'package:cleaning_service/presentation/pages/welcome/widgets/filters.dart';
+import 'package:cleaning_service/presentation/pages/welcome/widgets/categories/categories.dart';
+import 'package:cleaning_service/presentation/pages/welcome/widgets/discounts/discounts.dart';
+import 'package:cleaning_service/presentation/pages/welcome/widgets/filters/filters.dart';
 import 'package:cleaning_service/presentation/pages/welcome/widgets/header.dart';
-import 'package:cleaning_service/presentation/pages/welcome/widgets/other_services.dart';
+import 'package:cleaning_service/presentation/pages/welcome/widgets/otherServices/other_services.dart';
+import 'package:cleaning_service/presentation/utils/constants.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class WelcomePage extends StatelessWidget {
@@ -10,16 +13,28 @@ class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          Header(),
-          Filters(),
-          Categories(),
-          OtherServices(),
-        ],
+      body: SafeArea(
+        child: SingleChildScrollView(
+          padding: EdgeInsets.only(bottom: 20.0),
+          child: Column(
+            children: [
+              SizedBox(height: kDefaultPadding),
+              Header(),
+              SizedBox(height: kDefaultPadding),
+              Filters(),
+              SizedBox(height: kDefaultPadding),
+              Discounts(),
+              SizedBox(height: kDefaultPadding),
+              Categories(),
+              SizedBox(height: kDefaultPadding),
+              OtherServices(),
+            ],
+          ),
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(items: [
-        BottomNavigationBarItem(icon: Icon(Icons.home)),
+        BottomNavigationBarItem(label: 'Home', icon: Icon(Icons.home)),
+        BottomNavigationBarItem(label: 'Profile', icon: Icon(Icons.person)),
       ]),
     );
   }
