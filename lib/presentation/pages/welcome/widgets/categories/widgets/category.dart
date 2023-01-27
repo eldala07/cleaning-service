@@ -1,3 +1,4 @@
+import 'package:cleaning_service/presentation/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class Category extends StatelessWidget {
@@ -6,21 +7,29 @@ class Category extends StatelessWidget {
   final Color color1;
   final Color color2;
   final Color color3;
+  final int index;
+  final int numberOfCategories;
 
-  const Category(
-      {Key? key,
-      required this.icon,
-      required this.title,
-      required this.color1,
-      required this.color2,
-      required this.color3})
-      : super(key: key);
+  const Category({
+    Key? key,
+    required this.icon,
+    required this.title,
+    required this.color1,
+    required this.color2,
+    required this.color3,
+    required this.index,
+    required this.numberOfCategories,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
         height: 125,
         width: 100,
+        margin: EdgeInsets.only(
+          left: index == 0 ? kDefaultPadding : kDefaultPadding / 2,
+          right: index == numberOfCategories - 1 ? kDefaultPadding : 0.0,
+        ),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           color: color3,
@@ -49,7 +58,7 @@ class Category extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Container(
